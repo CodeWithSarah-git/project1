@@ -1,24 +1,28 @@
-const mongoose=require('mongoose')
-const userSchema=new mongoose.Schema({
+const mongoose = require('mongoose');
+
+const userSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true
     },
-    username:{
+    username: {
         type: String,
-        required: true
+        required: true,
+        unique: true // לוודא שאין כפילות
     },
-    email:{
-         type:mongoose.Schema.Types.String  
+    email: {
+        type: String,
+        required: true,
+        unique: true
     },
-    address:{
-        type:mongoose.Schema.Types.String,
-        default:"Seminar"
+    address: {
+        type: String,
+        default: "Seminar"
     },
-    phone:{
-        type:mongoose.Schema.Types.String,
+    phone: {
+        type: String,
         maxLength: 10
     }
+}, { timestamps: true }); // מוסיף createdAt ו-updatedAt אוטומטית
 
-})
-module.exports = mongoose.model('user', userSchema)
+module.exports = mongoose.model('User', userSchema);

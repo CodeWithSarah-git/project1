@@ -25,31 +25,39 @@ const getAllPosts = async (req, res) => {
 }
 
 const updatePost = async (req, res) => {
-    const { _id, title,body} = req.body
-    if (!_id || !title) {
-        return res.status(400).json({
-            message: 'fields are required'
-        })
+    const { title, body } = req.body;
+    const { id } = req.params; 
+    
+    if (!id || !title) {
+        return res.status(400).json({ message: 'fields are required' });
     }
-    const postRout = await postModels.findById(_id).exec()
-    if (!postRout) {
-        return res.status(400).json({ message: 'post not found' })
+    try {
+        const postRout = await postModels.findById(id);
+        if (!postRout) {
+            return res.status(404).json({ message: 'post not found' });
+        }
+        postRout.title = title;
+        postRout.body = body;
+        await postRout.save();
+        res.json({ message: `'${postRout.title}' updated successfully` });
+    } catch (error) {
+        res.status(500).json({ message: 'Server error', error });
     }
-    postRout.title = title
-    postRout.body = body
-    const updatePost = await postRout.save()
-    res.json(`'${updatePost.title}' updated`)
-}
+};
+
 const deletePost = async (req, res) => {
-    const { id } = req.body
-    const postRout = await postModels.findById(id).exec()
-    if (!postRout) {
-        return res.status(400).json({ message: 'post not found' })
+    const { id } = req.params; 
+    try {
+        const postRout = await postModels.findById(id);
+        if (!postRout) {
+            return res.status(404).json({ message: 'post not found' });
+        }
+        await postRout.deleteOne();
+        res.json({ message: `Post '${postRout.title}' deleted successfully` });
+    } catch (error) {
+        res.status(500).json({ message: 'Server error', error });
     }
-    const result = await postRout.deleteOne()
-    const reply = `post  deleted`
-    res.json(reply)
-}
+};
 
 module.exports = {
     getAllPosts,

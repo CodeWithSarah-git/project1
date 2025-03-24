@@ -10,8 +10,8 @@ const PORT = process.env.PORT || 2000;
 app.use(express.json());
 
 connectDB(); // התחברות למסד הנתונים
-mongoose.connection.once('open', () => console.log('✅ Connected to MongoDB'));
-mongoose.connection.on('error', err => console.log('❌ MongoDB connection error:', err));
+mongoose.connection.once('open', () => console.log(' Connected to MongoDB'));
+mongoose.connection.on('error', err => console.log(' MongoDB connection error:', err));
 app.use(cors(corsOptions));
 app.use(express.urlencoded({ extended: true })); 
 

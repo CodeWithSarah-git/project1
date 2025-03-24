@@ -12,7 +12,7 @@ const Layout = () => {
           </Typography>
           <Button color="inherit" component={Link} to="/">דף הבית</Button>
           <Button color="inherit" component={Link} to="/Todos">✅ משימות</Button>
-          <Button color="inherit" component={Link} to="/Photo">📷 תמונות</Button>
+          <Button color="inherit" component={Link} to="/Photos">📷 תמונות</Button>
           <Button color="inherit" component={Link} to="/Posts">📝 פוסטים</Button>
           <Button color="inherit" component={Link} to="/Users">👤 משתמשים</Button>
         </Toolbar>

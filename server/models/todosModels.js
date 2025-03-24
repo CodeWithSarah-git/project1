@@ -9,10 +9,9 @@ const todosSchema = new mongoose.Schema({
     tags: {
         type: [String]
     },
-    complete: {
-        type: Boolean
-       
-    }
+    completed:
+     { type: Boolean,
+         default: false }
 });
 
 module.exports = mongoose.model('Todo', todosSchema);
