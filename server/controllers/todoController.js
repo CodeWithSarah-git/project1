@@ -10,7 +10,7 @@ const createTodo = async (req, res) => {
         const newTodo = await todosModels.create({ title, tags, completed });
         return res.status(201).json(newTodo);
     } catch (error) {
-        console.error("❌ Error creating todo:", error);
+        console.error(" Error creating todo:", error);
         return res.status(500).json({ message: 'Server error', error });
     }
 };
@@ -59,8 +59,6 @@ const deleteTodo = async (req, res) => {
         res.status(500).json({ message: 'Server error', error });
     }
 };
-
-
 module.exports = {
     getAllTodos,
     createTodo,

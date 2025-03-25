@@ -1,4 +1,3 @@
-
 const postModels = require("../models/postModels");
 
 const createPost = async (req, res) => {

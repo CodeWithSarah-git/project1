@@ -8,7 +8,7 @@ const userSchema = new mongoose.Schema({
     username: {
         type: String,
         required: true,
-        unique: true // לוודא שאין כפילות
+        unique: true 
     },
     email: {
         type: String,
@@ -23,6 +23,6 @@ const userSchema = new mongoose.Schema({
         type: String,
         maxLength: 10
     }
-}, { timestamps: true }); // מוסיף createdAt ו-updatedAt אוטומטית
+}, { timestamps: true });
 
 module.exports = mongoose.model('User', userSchema);

@@ -9,4 +9,4 @@
             required:true
           }
   })
-  module.exports = mongoose.model('postsSchema', postsSchema)
+  module.exports = mongoose.model('Post', postsSchema)

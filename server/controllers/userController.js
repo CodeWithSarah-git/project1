@@ -1,4 +1,4 @@
-const User = require("../models/userModels"); // טעינה נכונה של המודל
+const User = require("../models/userModels"); 
 
 const createUser = async (req, res) => {
     
@@ -14,7 +14,7 @@ const createUser = async (req, res) => {
         return res.status(201).json({ message: "New user created", user: newUser });
 
     } catch (error) {
-        console.error("❌ Error creating user:", error);
+        console.error("Error creating user:", error);
         return res.status(500).json({ message: "Server error", error });
     }
 };
@@ -27,7 +27,7 @@ const getAllUsers = async (req, res) => {
         }
         res.json(users);
     } catch (error) {
-        console.error("❌ Error fetching users:", error);
+        console.error("Error fetching users:", error);
         return res.status(500).json({ message: "Server error", error });
     }
 };
@@ -56,7 +56,7 @@ const updateUser = async (req, res) => {
         res.json({ message: `'${user.name}' updated`, user });
 
     } catch (error) {
-        console.error("❌ Error updating user:", error);
+        console.error(" Error updating user:", error);
         return res.status(500).json({ message: "Server error", error });
     }
 };
@@ -75,7 +75,7 @@ const deleteUser = async (req, res) => {
         res.json({ message: "User deleted" });
 
     } catch (error) {
-        console.error("❌ Error deleting user:", error);
+        console.error(" Error deleting user:", error);
         return res.status(500).json({ message: "Server error", error });
     }
 };

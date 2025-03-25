@@ -1,11 +1,11 @@
-const mongoose=require('mongoose')
-const photoSchema=new mongoose.Schema({
+const mongoose=require("mongoose")
+const photosSchama=new mongoose.Schema({
     title:{
-        type:mongoose.Schema.Types.String,
+        type:String,
+    },
+    imageUrl:{
+        type:String,
         required:true
-        },
-        imageUrl:{
-           type:String
-        }  
+    }
 })
-module.exports = mongoose.model('photoSchema', photoSchema)
+module.exports=mongoose.model('photos',photosSchama)
